@@ -1,0 +1,74 @@
+<mvc:View controllerName="Testapplication.controller.View2" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout">
+	<Page title="{i18n>title}">
+		<content>
+			<Toolbar id="toolbar1">
+				<ToolbarSpacer/>
+				<Button id="b1" icon="css/images/plus.png" press="OnAddPress"/>
+			</Toolbar>
+			<l:Grid id="gridId" defaultSpan="L6 M6 S12" class="customTile" visible="false" hSpacing="0" content="{/results}">
+				<l:content>
+					<!--<List  items = "{/value}">-->
+					<CustomListItem>
+						<FlexBox alignItems="Start">
+							<items>
+								<Text text="{InSize}" class="leftContentText"/>  <!--text = "{}"  -->
+								<VBox>
+									<FlexBox alignItems="Start" class="topContent" justifyContent="SpaceBetween">
+										<items>
+											<Text class="topContentLeftText themeColor" text="{InProdDis}"/>
+											<Text class="topContentRightText themeColor" text="{InLot}"/>
+										</items>
+									</FlexBox>
+									<l:VerticalLayout class="" width="100%">
+										<l:content>
+											<FlexBox alignItems="Start" direction="Column">
+												<items>
+													<HBox>
+														<VBox>
+															<VBox class="infoDetails">
+																<Text text="Trolley Info"/>
+																<Text text="{Trolley}"/>
+															</VBox>
+															<VBox class="weightDetails">
+																<Text text="Tare"/>
+																<Text text="{Tare}" class="tareHeight"/>
+															</VBox>
+														</VBox>
+														<VBox class="netWeightDetails">
+															<Label text="Input Weight"/>
+															<Text text="{InWeight}"/>
+															<Label/><Label/>
+															<Label text="Output Weight"/>
+															<VBox alignItems="Start">
+																<Text text="{OutputWeight}" class="ouputWeight"/>
+																<Button text="GET WEIGHT" type="Emphasized" class="getWeightButton" press="getWeightPress" visible="{weightVisible}"/>
+																<core:Icon src="sap-icon://refresh" class="size1" visible="false"></core:Icon>
+															</VBox>
+														</VBox>
+													</HBox>
+												</items>
+											</FlexBox>
+										</l:content>
+									</l:VerticalLayout>
+								</VBox>
+								<Button icon="css/images/print.png" class="rightContentText" ></Button>
+							</items>
+						</FlexBox>
+					</CustomListItem>
+					<!--</List>-->
+				</l:content>
+			</l:Grid>
+		</content>
+		<footer>
+			<Bar>
+				<contentMiddle>
+					<Button text="SAVE" press="onclick"/>
+				</contentMiddle>
+				<contentMiddle>
+					<Button text="CANCEL" press="oncancel"/>
+				</contentMiddle>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>
