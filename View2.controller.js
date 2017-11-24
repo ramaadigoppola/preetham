@@ -67,7 +67,7 @@ this.getView().getModel().refresh(true);
 getWeightPress:function(){
 	var that = this;
 	var oView = this.getView();
-	var oModelData = this.getView().getModel().getData().value;
+	var oModelData = this.getView().getModel().getData().results;
 	var modelLength = oModelData.length;
 	$.each(oModelData,function(i,element){
 		if(i === modelLength-1){
@@ -90,8 +90,20 @@ onclick: function(){
 		return;
 	} 
 	
+	
 	var inputData = {};
-	input.Machine = modelResults.Machine;
+	var d = {};
+	d.Machine = modelResults.Machine;
+	d.MachOutReturnNav = [];
+	d.MachOutItemNav = [];
+	var data = {};
+	data.Machine = modelResults.Machine;
+	data.UnloadPt = "D01-20";
+	data.Trolley = "20";
+	d.MachOutItemNav.push(data);
+	inputData.d = d;
+		  
+	
 	//add all the required fields same as input.Machine
 	var oModel = this.getOwnerComponent().getModel("dryOutputModel");
 	//Using Update Model to post the data to backend url is same as excel sheet
@@ -104,8 +116,8 @@ onclick: function(){
 	that.fragment.open();
 		}
 		
-		function error(data){
-			new sap.m.MessageToast.show(data);
+		function failure(data){
+			MessageToast.show(data);
 		}
 },
 	
